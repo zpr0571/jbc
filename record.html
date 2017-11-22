@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>查看历史数据</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">查看历史数据</div>
+  
+  <div class="choose-time">选择时间</div>
+  <div class="date1 clearfix">
+    <select onchange="setDays()">
+    </select>
+    <span>年</span>
+    <select onchange="setDays()" class="middle">
+    </select>
+    <span>月</span>
+    <select>
+    </select>
+    <span class="nr">日</span>
+  </div>
+  <ul class="img-detail">
+    <li class="clearfix">
+      <div><img src="./img/rulemsg.png" alt=""></div>
+      <div>
+        <p><input type="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>点击这里更换图片</p>
+        <p class="sfz-d"><input type="text" placeholder="411527199500000000"></p>
+        <p>2017年10月30日</p>
+      </div>
+    </li>
+    <li class="clearfix">
+      <div><img src="./img/rulemsg.png" alt=""></div>
+      <div>
+      <p><input type="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>点击这里更换图片</p>
+        <p class="sfz-d"><input type="text" placeholder="411527199500000000"></p>
+        <p>2017年10月30日</p>
+      </div>
+    </li>
+    <li class="clearfix">
+      <div><img src="./img/rulemsg.png" alt=""></div>
+      <div>
+      <p><input type="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>点击这里更换图片</p>
+        <p class="sfz-d"><input type="text" placeholder="411527199500000000"></p>
+        <p>2017年10月30日</p>
+      </div>
+    </li>
+    <li class="clearfix">
+      <div><img src="./img/rulemsg.png" alt=""></div>
+      <div>
+      <p><input type="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>点击这里更换图片</p>
+        <p class="sfz-d"><input type="text" placeholder="411527199500000000"></p>
+        <p>2017年10月30日</p>
+      </div>
+    </li>
+    <li class="clearfix">
+      <div><img src="./img/rulemsg.png" alt=""></div>
+      <div>
+      <p><input type="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>点击这里更换图片</p>
+        <p class="sfz-d"><input type="text" placeholder="411527199500000000"></p>
+        <p>2017年10月30日</p>
+      </div>
+    </li>
+  </ul>
+  <ul class="point-btn clearfix">
+    <li><a href="./point.html"><img src="./img/msg.png" alt=""></a></li>
+    <li><a href="./record.html"><img src="./img/srecord.png" alt=""></a></li>
+  </ul>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script type="text/javascript">
+    
+    // 日历
+    window.onload = function() {
+      var selects = document.getElementsByTagName("select"); //通过标签名获取select对象
+      var date = new Date();
+      var nowYear = date.getFullYear(); //获取当前的年
+      for(var i = nowYear - 100; i <= nowYear; i++) {
+        var optionYear = document.createElement("option");
+        optionYear.innerHTML = i;
+        optionYear.value = i;
+        selects[0].appendChild(optionYear);
+      }
+      for(var i = 1; i <= 12; i++) {
+        var optionMonth = document.createElement("option");
+        optionMonth.innerHTML = i;
+        optionMonth.value = i;
+        selects[1].appendChild(optionMonth);
+      }
+      getDays(selects[1].value, selects[0].value, selects);
+    }
+      // 获取某年某月存在多少天
+    function getDaysInMonth(month, year) {
+      var days;
+      if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+        days = 31;
+      } else if(month == 4 || month == 6 || month == 9 || month == 11) {
+        days = 30;
+      } else {
+        if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { // 判断是否为润二月
+          days = 29;
+        } else {
+          days = 28;
+        }
+      }
+      return days;
+    }
+
+    function setDays() {
+      var selects = document.getElementsByTagName("select");
+      var year = selects[0].options[selects[0].selectedIndex].value;
+      var month = selects[1].options[selects[1].selectedIndex].value;
+      getDays(month, year, selects);
+    }
+
+    function getDays(month, year, selects) {
+      var days = getDaysInMonth(month, year);
+      selects[2].options.length = 0;
+      for(var i = 1; i <= days; i++) {
+        var optionDay = document.createElement("option");
+        optionDay.innerHTML = i;
+        optionDay.value = i;
+        selects[2].appendChild(optionDay);
+      }
+    }
+
+
+//图片预览路径
+    function getObjectURL(file) {
+      var url = null;
+      if(window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+      } else if(window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+      } else if(window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+      }
+      return url;
+    }
+
+    // 点击图片放大
+    var aa = document.documentElement.clientHeight;
+    var bb = document.documentElement.clientWidth;
+    
+    var a = $("ul li img").width();
+    var b = $("ul li img").height();
+    var c = true;
+    $("ul li img").click(function(){
+          var width = $(this).width();
+          if(c) {
+            c = false;
+            $(this).width(bb);
+            $(this).height(aa/2);
+          } else { 
+              c = true;
+              $(this).width(a);
+              $(this).height(b);
+          }
+      });
+
+// 点击更换图片
+    $("ul li input[type = 'file']").change(function (evt){
+      var imgSrcI = getObjectURL(this.files[0]);
+      $(this).parent().parent().parent().children().children("img").attr("src",imgSrcI) 
+      var img1 = sessionStorage.setItem('img1',imgSrcI) ;
+    })
+    $("ul li input[type = 'file']").change(function (){
+      var sfz1 = sessionStorage.setItem('sfz1',$("ul li input[type = 'text']").val());
+    })
+
+
+
+
+
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+.hide{
+	display: none;
+}
+body{
+	background-color: rgb(244,244,244);
+	overflow: auto;
+}
+.header{
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	color: #fff;
+	font-size: 1.2rem;
+	background-color: #13ade7;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.box{
+	width: 80%;
+	margin: 0 auto;
+}
+.jbc-logo{
+	width: 10rem;
+	height: 3rem;
+	position: fixed;
+	bottom: 3.5rem;
+	left: 0;
+	margin-left: 25%;
+}
+.jbc-logo img{
+	width: 100%;
+}
+.jbc-logo.pro-logo{
+	bottom: .5rem;
+}
+.msg{
+	border: 1px solid #bebebe;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.msg li{
+	padding-left: 3rem;
+	border-bottom: 1px solid #bebebe;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background: url(../img/uname.png) no-repeat left center;
+	background-size: contain;
+}
+.msg li:nth-child(2){
+	background: url(../img/phone.png) no-repeat left center;
+	background-size: contain;
+}
+.msg li:nth-child(3){
+	background: url(../img/staff.png) no-repeat left center;
+	background-size: contain;
+	border-bottom: none;
+}
+.msg li input{
+	background-color: #fff;
+	width: 90%;
+	height: 80%;
+	text-align: left;
+}
+.login-btn div{
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background-color: #13ade7;
+	color: #fff;
+	margin-top: .8rem;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 1rem;
+}
+.login-regis{
+	color: #bebebe;
+	text-align: center;
+	font-size: 1rem;
+	height: 3rem;
+	line-height: 3rem;
+	margin-top: .5rem;
+}
+.login-regis a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #bebebe;
+}
+/*注册页面*/
+.btn{
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background-color: #13ade7;
+	color: #fff;
+	margin-top: .8rem;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 1rem;
+}
+
+/*申请登录权限*/
+.branch{
+	width: 95%;
+	margin: 4rem auto;
+	color: #13ade7;
+	font-size: 1rem;
+	letter-spacing: 1px;
+}
+.branch div{
+	height: 2rem;
+	line-height: 2rem;
+}
+.apply{
+	color: #13ade7;
+	letter-spacing: 1px;
+}
+.apply div{
+	letter-spacing: 1px;
+	margin-bottom: 2rem;
+	height: 3rem;
+	line-height: 3rem;
+}
+.data-query select ,.branch select{
+	border:1px solid #12ade7;
+	background-color: #fff;
+	height: 2rem;
+	margin-top: .5rem;
+	width: 100%;
+	color: #12ade7;
+	outline: none;
+	padding-left: 1rem;
+}
+/*省分行*/
+.count div ,.data-query div{
+	margin-top: 1rem;
+	width: 97%;
+	height: 2rem;
+	line-height: 2rem;
+	padding-left: 3%;
+	background-color: #12ade7;
+	color: #fff;
+}
+.count table{
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+}
+.count table tr{
+	height: 2rem;
+	line-height: 2rem;
+}
+.count table td{
+	border: 1px solid #12ade7;
+	color: #12ade7;
+}
+.data-query select{
+	width: 90%;
+	margin-left: 5%;
+}
+.total div{
+	float: left;
+	color: #12ade7;
+	font-size: 1rem;
+	line-height: 2rem;
+	padding-left: 1rem;
+}
+input{
+	outline: none;
+	border: none;
+	background-color: #fff;
+	border-radius: 5px;
+	text-align: center;
+	width: 40%;
+}
+.clock{
+	text-align: center;
+	padding-left: 0;
+}
+/*网点*/
+.point-img img{
+	margin-bottom: 2.5rem;
+}
+.job-number{
+	background-color: #12ade7;
+	color: #fff;
+	text-align: center;
+	margin-top: .2rem;
+	height: 2rem;
+	line-height: 2rem;
+}
+/*上传图片*/
+.upBox{
+	text-align: center;
+	width: 100%;
+	height: 15rem;
+	background-color: #9bd7ec;
+}
+.inputBox{
+	width: 100%;
+	color: #12ade7;
+	text-align: center;
+	font-size: 1rem;
+}
+.inputBox input{	
+	opacity: 0;
+	cursor: pointer;
+	height: 5rem;
+	position: relative;
+	top: 3rem;
+}
+.imgContainer{
+	height: 15rem;
+	position: absolute;
+	top: 4.5rem;
+	text-align: center;
+}
+.imgContainer img{
+	width: 100%;
+	height: 15rem;
+	cursor: pointer;
+}
+.point-count div,.person-count div{
+	margin-top: .2rem;
+}
+.point-count table ,.person-count table{
+	margin-bottom: 0;
+}
+/*身份证添加11、15下午*/
+.sfz{
+	width: 90%;
+	margin: .2rem auto;
+}
+.sfz input{
+	width: 100%;
+	border: 0;
+	text-align: center;
+	height: 2rem;
+	line-height: 2rem;
+}
+.mkpic{
+	width: 90%;
+	margin: .3rem auto;
+	margin-bottom: 2.5rem;
+	background-color: #12ade7;
+	color: #fff;
+	border-radius: 5px;
+	height: 2.3rem;
+	text-align: center;
+	line-height: 2.3rem;
+}
+.point-btn{
+	background-color: #fff;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.point-btn li{
+	float: left;
+	width: 50%;
+	text-align: center;
+	height: 2.5rem;
+	line-height: 2.5rem;
+}
+.point-btn li a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #ccc;
+}
+.point-btn li a img{
+	width: 2rem;
+	margin-top: .4rem;
+}
+
+/*查看历史数据*/
+.choose-time{
+	width: 95%;
+	padding-left: 5%;
+	height: 2rem;
+	line-height: 2rem;
+	color: #fff;
+	background-color: #12ade7;
+	margin-top: .5rem; 
+}
+/*修改*/
+.date1 {
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	border-bottom: 1px solid #12ade7;
+}
+.date1 select{
+	float: left;
+	width: 15%;
+	margin-top: .8rem;
+	border: none;
+	outline: none;
+	background-color: rgb(244,244,244);
+	margin-left: 8%;
+}
+
+.date1 span{
+	float: left;
+	width: 10%;
+	text-align: center;
+	color: #12ade7;
+	padding-top: .1rem;
+	border-right: 1px solid #12ade7;
+}
+.date1 span.nr{
+	border-right: none;
+}
+.img-detail{
+	margin-top: 1.5rem;
+	height: 27rem;
+	overflow-y: auto;
+}
+.img-detail li{
+	margin-top: .5rem;
+}
+.img-detail li div{
+	float: left;
+	width: 45%;
+	padding-left: 5%;
+}
+.img-detail li div p:first-child{
+	margin-bottom: .5rem;
+}
+.img-detail li div:nth-child(2){
+	
+	padding-left: 3%;
+	color: #12ade7;
+}
+.img-detail input[type ="file"]{
+	opacity: 0;
+    position: relative;
+    top: 1rem;
+    width: 100%;
+    height: 2rem;
+    left: 0;
+}
+/*历史数据修改11、15下午*/
+.img-detail li div img{
+	width: 100%;
+	height: 6rem;
+	z-index: 100;
+	position: relative;
+}
+.img-detail .sfz-d input{
+	width: 100%;
+	background: none;
+	outline: none;
+	text-align: left;
+	color: #13ade7;
+}
+::-webkit-input-placeholder{
+	color: #13ade7;
+}
+/*授权管理*/
+.granted>div ,.ungranted>div{
+	padding-left: 1rem;
+	height: 2rem;
+	color: #bebebe;
+	line-height: 2rem;
+}
+.ungranted li ,.granted li{
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	border-bottom: 1px solid #12ade7;
+	text-align: center;
+}
+.ungranted li>div ,.granted li>div{
+	float: left;
+	width: 25%;
+}
+.ungranted li div.btn1 ,.granted li div.btn1{
+	height: 2rem;
+  border-radius: 50px;
+  position: relative;
+  top: .5rem;
+  margin-left: 15%;
+}
+
+.btn2{
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 48px;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+.open1{
+  background-color: #12ade7;
+}
+.open2{
+  top: 2px;
+  right: 1px;
+}
+.close1{
+  background-color: #bfbfbf;
+}
+.close2{
+  left: 0px;
+  top: 2px;
+}

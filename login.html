@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>江苏中国银行登录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">登录</div>
+  <div class="box">
+ 
+    <ul class="login-msg msg">
+      <li><input type="text" placeholder="请输入姓名"></li>
+      <li><input type="number" placeholder="请输入手机号"></li>
+      <li><input type="number" placeholder="请输入EHR号"></li>
+    </ul>
+
+    <div class="login-btn">
+      <div>网点专管员登录</div>
+      <div>市支行管理员登录</div>
+      <div>市分行管理员登录</div>
+      <div>省分行管理员登录</div>
+    </div>
+
+    <div class="login-regis"><a href="./register.html">网点管理员注册</a></div>
+    <div class="jbc-logo"><img src="./img/logo.png" alt=""></div>
+  </div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script type="text/javascript">
+  // 验证成功进入网点专管员
+    $(".login-btn>div:eq(0)").click(function (){
+      window.location.href = "./point.html"
+    })
+
+    // 验证成功进入市支行
+    $(".login-btn>div:eq(1)").click(function (){
+      window.location.href = "./subbranch.html"
+    })
+
+    // 验证成功进入市分行
+    $(".login-btn>div:eq(2)").click(function (){
+      window.location.href = "./citybranch.html"
+    })
+
+    // 验证成功进入省分行
+    $(".login-btn>div:eq(3)").click(function (){
+      window.location.href = "./probranch.html"
+    })
+
+        
+    var h=$(window).height();
+
+    $(window).resize(function() {
+      if($(window).height()<h){
+          $('.jbc-logo').hide();
+      }
+      if($(window).height()>=h){
+          $('.jbc-logo').show();
+      }
+    });
+  </script>
+</body>
+</html>

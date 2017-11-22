@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>江苏中国银行注册</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+</head>
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">申请登录权限</div>
+  <div class="branch">
+    <div>请选择需要申请登录权限的网点</div>
+    <select class="prov">
+  
+    </select>
+
+    <select class="city">
+      
+    </select>
+
+    <select class="dist">
+      
+    </select>
+  </div>
+  <div class="apply box">
+    <div class="btn">确认申请</div>
+    <p>(初次登录需要选择网点，由市分行确认后方可登录)</p>
+  </div>
+  <div class="jbc-logo"><img src="./img/logo.png" alt=""></div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script src="./js/jquery.cityselect.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $(".btn").click(function (){
+        window.location.href = "./login.html"
+      })
+      $(".branch").citySelect({
+          prov: "常州市分行",
+          city: "钟楼支行",
+          dist: "会馆浜分理处",
+          nodata: "none"
+      });
+
+    })
+
+    
+  </script>
+</body>
+</html>

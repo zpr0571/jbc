@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>授权管理</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">授权管理</div>
+  
+  <div class="granted">
+    <div>已授权</div>
+    <ul>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>李四</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>王五</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>燕六</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ungranted">
+    <div>未授权</div>
+    <ul>
+      <li class="clearfix">
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script type="text/javascript">
+    
+    $(".btn2").click(function (){
+      if ($(this).parent().hasClass("close1")){
+        $(this).parent().removeClass("close1");
+        $(this).parent().addClass("open1");
+      } else {
+        $(this).parent().removeClass("open1");
+        $(this).parent().addClass("close1");
+      }
+
+      if ($(this).hasClass("close2")){
+        $(this).removeClass("close2");
+        $(this).addClass("open2");
+      } else {
+        $(this).removeClass("open2");
+        $(this).addClass("close2");
+      }
+     
+    })
+  </script>
+</body>
+</html>

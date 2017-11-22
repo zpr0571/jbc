@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>市分行</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">中国银行南京市分行</div>
+  
+  <div class="count city-count">
+    <div>市销售统计</div>
+    <table>
+      <tr>
+        <td>本日总计</td>
+        <td>本周总计</td>
+        <td>本月统计</td>
+        <td>本年总计</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>60</td>
+        <td>120</td>
+        <td>250</td>
+      </tr>
+    </table>
+  </div>
+  <div class="data-query city-data">
+    <div>历史数据查询</div>
+    <select class="prov">
+  
+    </select>
+
+    <select class="city">
+      
+    </select>
+
+    <select class="dist">
+      
+    </select>
+    <select class="employ">
+      <option value="-1">—请选择需要查询的员工—</option>
+      <option value="">张三</option>
+      <option value="">李四</option>
+      <option value="">王五</option>    
+    </select>
+
+    <div>请选择时间区间</div>
+    <div class="clock">
+      <label for="from">从</label>
+      <input readonly="readonly" type="text" id="from" name="from">
+      <label for="to">到</label>
+      <input readonly="readonly" type="text" id="to" name="to">
+    </div>
+  </div>
+  <div class="total clearfix">
+    <div>本年总计：</div>
+    <div class="city-total">1314</div>
+  </div>
+  <div class="total clearfix">
+    <div>该网点参与率：</div>
+    <div class="rate">25%</div>
+  </div>
+
+  <!-- 授权管理 -->
+  <div class="granted">
+    <div>已授权</div>
+    <ul>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>李四</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>王五</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>燕六</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 open1">
+          <div class="btn2 open2"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="ungranted">
+    <div>未授权</div>
+    <ul>
+      <li class="clearfix">
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+      <li>
+        <div>战三</div>
+        <div>20131034227</div>
+        <div class="btn1 close1">
+          <div class="btn2 close2"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script src="./js/jquery.cityselect.js"></script>
+  <script type="text/javascript">
+     
+    $(function() {
+
+      $(".city-data").citySelect({
+          prov: "常州市分行",
+          city: "钟楼支行",
+          dist: "会馆浜分理处",
+          nodata: "none"
+      });
+
+      // 授权管理
+      $(".btn2").click(function (){
+        if ($(this).parent().hasClass("close1")){
+          $(this).parent().removeClass("close1");
+          $(this).parent().addClass("open1");
+        } else {
+          $(this).parent().removeClass("open1");
+          $(this).parent().addClass("close1");
+        }
+
+        if ($(this).hasClass("close2")){
+          $(this).removeClass("close2");
+          $(this).addClass("open2");
+        } else {
+          $(this).removeClass("open2");
+          $(this).addClass("close2");
+        }
+       
+      })
+      // 时间区间
+      $( "#from" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        onClose: function( selectedDate ) {   
+          $( "#to" ).datepicker( "option", "minDate", selectedDate );
+          $( "#to" ).datepicker( "option", "dateFormat","yy-mm-dd");
+          $( "#from" ).datepicker( "option", "dateFormat","yy-mm-dd");
+        }
+      });
+      $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        onClose: function( selectedDate ) {
+          $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+          $( "#from" ).datepicker( "option", "dateFormat","yy-mm-dd");
+          $( "#to" ).datepicker( "option", "dateFormat","yy-mm-dd");
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>

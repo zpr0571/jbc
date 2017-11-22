@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>江苏中国银行注册</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">管理员注册</div>
+  <div class="box">
+ 
+    <ul class="regis-msg msg">
+      <li><input type="text" placeholder="请输入姓名"></li>
+      <li><input type="number" placeholder="请输入手机号"></li>
+      <li><input type="number" placeholder="请输入EHR号"></li>
+    </ul>
+
+    <div class="admin-regis btn">管理员注册</div>
+  
+  </div>
+  <div class="jbc-logo"><img src="./img/logo.png" alt=""></div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script type="text/javascript">
+    $(".admin-regis").click(function (){
+      window.location.href = "./authority.html"
+    })
+
+    var h=$(window).height();
+
+    $(window).resize(function() {
+        if($(window).height()<h){
+            $('.jbc-logo').hide();
+        }
+        if($(window).height()>=h){
+            $('.jbc-logo').show();
+        }
+    });
+  </script>
+</body>
+</html>

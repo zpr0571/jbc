@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>网点</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body class="point-img">
+  <div class="header">中国银行南京市中山路网点</div>
+  <div id="uppic">
+    <div class="job-number">中国银行南京市中山路网点</div>
+    <div class="upBox">
+      <div class="inputBox">
+       <input type="file" title="请选择图片" id="file" accept="image/png,image/jpg,image/gif,image/JPEG"/>
+      <div class="upword">点击上传图片</div>
+     
+      </div>
+
+      <div id="imgBox">
+      </div>
+      <!-- <button id="upbtn">上传</button> -->
+    </div>  
+  
+    <div class="count point-count">
+      <div>网点统计</div>
+      <table>
+        <tr>
+          <td>本日总计</td>
+          <td>本周总计</td>
+          <td>本月总计</td>
+          <td>本年总计</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>60</td>
+          <td>120</td>
+          <td>250</td>
+        </tr>
+      </table>
+    </div>
+    <div class="count person-count">
+      <div>个人销售统计</div>
+      <table>
+        <tr>
+          <td>&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</td>
+          <td>本日总计</td>
+          <td>本周总计</td>
+          <td>本月总计</td>
+          <td>本年总计</td>
+        </tr>
+        <tr>
+          <td>张三</td>
+          <td>12</td>
+          <td>60</td>
+          <td>120</td>
+          <td>250</td>
+        </tr>
+      </table>
+    </div>
+    <!-- 身份证添加11、15下午 -->
+    <div class="sfz"><input type="text" placeholder="请输入身份证号"></div>
+  </div>
+  
+  <div class="mkpic">生成图片</div>
+  <ul class="point-btn clearfix">
+    <li><a href="./point.html"><img src="./img/smsg.png" alt=""></a></li>
+    <li><a href="./record.html"><img src="./img/record.png" alt=""></a></li>
+  </ul>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script type="text/javascript" src="./js/html2canvas.js"></script>
+  <script type="text/javascript">
+    var cities=[    /*0号下标没有元素*/
+          [{"name":'Vicky',"value":101},
+           {"name":'zhangzhang',"value":102},
+           {"name":'maklong',"value":103},
+           {"name":'coco',"value":104}],
+          [{"name":'jasper',"value":201},
+           {"name":'neinei',"value":202},
+           {"name":'中国银行徐州青年路支行',"value":301}],
+          [{"name":'中国银行徐州九龙湖支行',"value":302},
+           {"name":'中国银行徐州淮塔支行',"value":303},
+           {"name":'中国银行徐州解放南路支行',"value":304}]
+        ];
+
+    function change(){
+      var v=document.querySelector('.sel').value;   
+      var sel2=document.querySelector('.sel2');
+
+      if(v == -1){
+          sel2.style.display='none'
+      } else {
+        
+        sel2.style.display='inline'
+        sel2.innerHTML=''//每次清空
+        for (var i = 0; i < cities[v].length; i++) {
+          
+          var city2=cities[v][i].name;         
+          var op=document.createElement('option');
+          
+          op.innerHTML=city2
+          
+          sel2.appendChild(op)
+        }
+      }
+
+    }
+
+
+    // 上传图片
+    imgUpload({
+        inputId:'file', //input框id
+        imgBox:'imgBox', //图片容器id
+        buttonId:'upbtn', //提交按钮id
+        upUrl:'',  //提交地址
+        data:'file1' //参数名
+      })
+    var imgSrc = []; //图片路径
+    var imgFile = []; //文件流
+    var imgName = []; //图片名字
+    //选择图片
+    function imgUpload(obj) {
+      var oInput = '#' + obj.inputId;
+      var imgBox = '#' + obj.imgBox;
+      var upbtn = '#' + obj.buttonId;
+      $(oInput).on("change", function() {
+        var fileImg = $(oInput)[0];
+        var fileList = fileImg.files;
+        for(var i = 0; i < fileList.length; i++) {
+          var imgSrcI = getObjectURL(fileList[i]);
+          imgName.push(fileList[i].name);
+          imgSrc.push(imgSrcI);
+          imgFile.push(fileList[i]);
+        }
+        addNewContent(imgBox);
+      })
+      $(upbtn).on('click', function() {
+        var data = new Object;
+        data[obj.data] = imgFile;
+        submitPicture(obj.upUrl, data);
+      })
+    }
+    //图片展示
+    function addNewContent(obj) {
+      $(imgBox).html("");
+      for(var a = 0; a < imgSrc.length; a++) {
+        var oldBox = $(obj).html();
+        $(obj).html(oldBox + '<div class="imgContainer"><img title=' + imgName[a] + ' alt=' + imgName[a] + ' src=' + imgSrc[a] + ' onclick="imgDisplay(this)"></div>');
+      }
+    }
+    
+    //上传(将文件流数组传到后台)
+    function submitPicture(url,data) {
+      console.log(data);
+      alert('请打开控制台查看传递参数！');
+      if(url && data){
+        $.ajax({
+          type: "post",
+          url: url,
+          async: true,
+          data: data,
+          traditional: true,
+          success: function(dat) {
+      //      console.log(dat);
+          }
+        });
+      }
+    }
+    //图片灯箱
+    function imgDisplay(obj) {
+      var src = $(obj).attr("src");
+      var imgHtml = '<div style="width: 100%;height: 100vh;overflow: auto;background: rgba(0,0,0,0.5);text-align: center;position: fixed;top: 0;left: 0;z-index: 1000;"><img src=' + src + ' style="margin-top: 100px;width: 70%;margin-bottom: 100px;"/><p style="font-size: 50px;position: fixed;top: 30px;right: 30px;color: white;cursor: pointer;" onclick="closePicture(this)">×</p></div>'
+      $('body').append(imgHtml);
+    }
+    //关闭
+    function closePicture(obj) {
+      $(obj).parent("div").remove();
+    }
+
+    //图片预览路径
+    function getObjectURL(file) {
+      var url = null;
+      if(window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+      } else if(window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+      } else if(window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+      }
+      return url;
+    }
+
+
+    // 图片生成
+    $(".mkpic").click(function (){
+      $(".upword").css("opacity",0)
+      html2canvas(document.getElementById('uppic'), {
+          useCORS: true,
+          // allowTaint: true,    
+          // taintTest: false,
+          onrendered: function(canvas) {
+            canvas.id = "mycanvas";    
+            //生成base64图片数据    
+            var dataUrl = canvas.toDataURL();    
+            var newImg = document.createElement("img");    
+            newImg.src =  dataUrl;    
+            document.body.appendChild(newImg); 
+            // document.body.appendChild(canvas);
+          }
+      })
+    })
+
+
+  </script>
+</body>
+</html>

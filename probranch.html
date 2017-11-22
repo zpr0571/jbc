@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>省分行</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="./css/jquery-ui.min.css">
+  <script type="text/javascript">
+  !function(){var e=360,t=document.documentElement.clientWidth;if(t!==e){var n=document.getElementsByTagName("head")[0],m=document.createElement("style");m.innerHTML="html{font-size:"+t/e*100+"%;}",n.appendChild(m)}}();
+  </script>
+</head>
+<body>
+  <div class="header">中国银行江苏省分行</div>
+  
+  <div class="count pro-count">
+    <div>省销售统计</div>
+    <table>
+      <tr>
+        <td>本日总计</td>
+        <td>本周总计</td>
+        <td>本月统计</td>
+        <td>本年总计</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>60</td>
+        <td>120</td>
+        <td>250</td>
+      </tr>
+    </table>
+  </div>
+  <div class="data-query pro-data">
+    <div>历史数据查询</div>
+    <select class="prov">
+  
+    </select>
+
+    <select class="city">
+      
+    </select>
+
+    <select class="dist">
+      
+    </select>
+    
+    <select class="employ">
+      <option value="-1">—请选择需要查询的员工—</option>
+      <option value="">张三</option>
+      <option value="">李四</option>
+      <option value="">王五</option>    
+        
+    </select>
+
+    <div>请选择时间区间</div>
+    <div class="clock">
+      <label for="from">从</label>
+      <input readonly="readonly" type="text" id="from" name="from">
+      <label for="to">到</label>
+      <input readonly="readonly" type="text" id="to" name="to">
+    </div>
+  </div>
+  <div class="total clearfix">
+    <div>本年总计：</div>
+    <div class="pro-total">1314</div>
+  </div>
+  <div class="total clearfix">
+    <div>该网点参与率：</div>
+    <div class="rate">25%</div>
+  </div>
+  <div class="jbc-logo pro-logo"><img src="./img/logo.png" alt=""></div>
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/vue.js"></script>
+  <script src="./js/jquery.cityselect.js"></script>
+  <script src="./js/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+
+    
+    
+    $(function() {
+
+      $(".pro-data").citySelect({
+        prov: "常州市分行",
+        city: "钟楼支行",
+        dist: "会馆浜分理处",
+        nodata: "none"
+      });
+
+      // 时间区间
+      $( "#from" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+        onClose: function( selectedDate ) {   
+          $( "#to" ).datepicker( "option", "minDate", selectedDate );
+          $( "#to" ).datepicker( "option", "dateFormat","yy-mm-dd");
+          $( "#from" ).datepicker( "option", "dateFormat","yy-mm-dd");
+        }
+      });
+      $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        changeYear: true,
+        onClose: function( selectedDate ) {
+          $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+          $( "#from" ).datepicker( "option", "dateFormat","yy-mm-dd");
+          $( "#to" ).datepicker( "option", "dateFormat","yy-mm-dd");
+        }
+      });
+
+      var h=$(window).height();
+
+      $(window).resize(function() {
+          if($(window).height()<h){
+              $('.jbc-logo').hide();
+          }
+          if($(window).height()>=h){
+              $('.jbc-logo').show();
+          }
+      });
+      
+    });
+  </script>
+</body>
+</html>
